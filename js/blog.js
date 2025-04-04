@@ -1,7 +1,9 @@
 async function loadBlogPosts() {
   try {
-    // Configure marked.js
+    // Simple marked configuration
     marked.use({
+      breaks: true,
+      gfm: true,
       mangle: false,
       headerIds: false,
     });
@@ -32,13 +34,15 @@ async function loadBlogPosts() {
         }
         const content = await response.text();
 
-        // Extract first non-header paragraph for preview
-        const contentLines = content.split("\n");
-        const previewText =
-          contentLines.find(
+        // Extract first two non-header paragraphs for preview
+        const previewLines = content
+          .split("\n")
+          .filter(
             (line) =>
               line.trim() && !line.startsWith("#") && !line.startsWith("Tags:")
-          ) || "";
+          )
+          .slice(0, 2)
+          .join("\n");
 
         const postElement = document.createElement("article");
         postElement.className = "blog-post";
@@ -47,8 +51,8 @@ async function loadBlogPosts() {
           <div class="date">${post.date}</div>
           <div class="date">${post.datefa}</div>
           <div class="excerpt" ${
-            hasPersian(previewText) ? 'lang="fa"' : ""
-          }>${previewText}</div>
+            hasPersian(previewLines) ? 'lang="fa"' : ""
+          }>${previewLines}</div>
           <a href="/blog/post.html?id=${post.id}" class="read-more">
             <button class="contactButton">
               Continue

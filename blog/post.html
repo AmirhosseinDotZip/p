@@ -62,18 +62,12 @@
     <script>
         async function loadPost() {
             try {
-                // Configure marked.js
+                // Simple marked configuration without custom renderer
                 marked.use({
-                    renderer: {
-                        text(text) {
-                            // Handle hashtags
-                            return typeof text === 'string' 
-                                ? text.replace(/(?:^|\s)#(\w+)/g, ' <span class="tag">#$1</span>')
-                                : text;
-                        }
-                    },
                     breaks: true,
-                    gfm: true
+                    gfm: true,
+                    mangle: false,
+                    headerIds: false
                 });
 
                 const params = new URLSearchParams(window.location.search);
@@ -87,11 +81,22 @@
                     throw new Error('Post not found');
                 }
                 
-                const contentResponse = await fetch(`/blog/${post.file}`);
+                const contentResponse = await fetch(`/blog/posts/${post.file}`);
                 const content = await contentResponse.text();
                 
                 document.title = `${post.title} - AmirhosseinDotZip`;
-                document.getElementById('post-content').innerHTML = marked.parse(content);
+                
+                // Convert markdown to HTML
+                const htmlContent = marked.parse(content);
+                document.getElementById('post-content').innerHTML = htmlContent;
+
+                // Add RTL support after content is loaded
+                document.querySelectorAll('#post-content h1, #post-content h2, #post-content h3, #post-content h4, #post-content h5, #post-content h6, #post-content p').forEach(el => {
+                    if (/[\u0600-\u06FF]/.test(el.innerText)) {
+                        el.setAttribute('dir', 'rtl');
+                        el.setAttribute('lang', 'fa');
+                    }
+                });
             } catch (error) {
                 console.error('Error loading post:', error);
                 document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
