@@ -138,10 +138,14 @@ h5 {
   background-color: transparent;
   height: 90px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .header-nav {
@@ -150,6 +154,7 @@ h5 {
   align-items: center;
   padding: 0 25px;
   height: 90px;
+  position: relative;
 }
 
 .header-sticky {
@@ -158,10 +163,13 @@ h5 {
   left: 0;
   width: 100%;
   z-index: 1999;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding-top: 0;
   padding-bottom: 0;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
 }
 
 .logo {
@@ -486,7 +494,7 @@ h5 {
 
 /* Blog styles */
 .blog {
-  padding: 7rem 0;
+  padding: 11rem 0 7rem;
   background-color: var(--primary-bg-color);
 }
 
@@ -1115,4 +1123,15 @@ so that it is smooth among other more minor things */
 .theme-btn img {
   width: 20px;
   height: 20px;
+}
+
+/* Progress bar styles */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #4fcf70, #fad648, #a767e5);
+  width: 0%;
+  transition: width 0.1s ease;
 }

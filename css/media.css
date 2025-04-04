@@ -78,14 +78,21 @@
 
   .nav.open .nav-list {
     position: fixed;
-    inset: 0;
-    background-color: #fff;
-    z-index: 1;
-    padding: 46px 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
     row-gap: 24px;
     font-size: 48px;
     font-weight: 500;
@@ -100,14 +107,18 @@
   }
 
   .nav-btn {
-    position: absolute;
-    z-index: 9;
-    top: 36px;
-    right: 30px;
+    position: relative;
+    z-index: 1001;  /* Make sure button stays above the menu */
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .nav.open .nav-btn {
     position: fixed;
+    top: 36px;
+    right: 30px;
   }
 
   .header-nav {

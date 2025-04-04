@@ -19,6 +19,7 @@
     <header id="header" class="header">
         <div class="container container-lg">
           <div class="header-nav">
+            <div class="progress-bar" id="progress-bar"></div>
             <a
               href="./index.html"
               class="logo"
@@ -111,6 +112,16 @@
         }
         
         document.addEventListener('DOMContentLoaded', loadPost);
+
+        // Add this after your existing script
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.width = `${scrolled}%`;
+        }
+        
+        window.addEventListener('scroll', updateProgressBar);
+        window.addEventListener('resize', updateProgressBar);
     </script>
 </body>
 </html>

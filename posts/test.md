@@ -1,11 +1,15 @@
 # Markdown syntax guide
 
-## Headers
+<!-- > ## Headers -->
 
 # This is a Heading h1
-## This is a Heading h2
 ###### This is a Heading h6
 
+
+
+<img src="./img/works/04.jpg" alt="isolated" width="500"/>
+
+## Images
 ## Emphasis
 
 *This text will be italic*  
@@ -17,6 +21,7 @@ __This will also be bold__
 _You **can** combine them_
 
 ## Lists
+
 
 ### Unordered
 
