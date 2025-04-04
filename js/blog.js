@@ -55,7 +55,11 @@ async function loadBlogPosts() {
           <div class="excerpt" ${
             hasPersian(previewLines) ? 'lang="fa"' : ""
           }>${previewLines}</div>
-          <a href="${baseURL}/post.html?id=${post.id}" class="read-more">
+          <a href="${
+            window.location.hostname === "amirhosseindotzip.github.io"
+              ? "/p/post.html"
+              : "./post.html"
+          }?id=${post.id}" class="read-more">
             <button class="contactButton">
               Continue
               <div class="iconButton">
