@@ -35,13 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set initial background
     const hero = document.querySelector(".hero");
     if (hero) {
-      hero.style.backgroundImage = `url('./img/background/${currentTheme}.jpg')`;
+      hero.style.backgroundImage = `url('./img/background/${currentTheme}.webp')`;
     }
 
     themeBtn.addEventListener("click", () => {
       currentTheme = currentTheme === "bg" ? "bg2" : "bg";
       if (hero) {
-        hero.style.backgroundImage = `url('./img/background/${currentTheme}.jpg')`;
+        hero.style.backgroundImage = `url('./img/background/${currentTheme}.webp')`;
       }
     });
   }
