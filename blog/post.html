@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - AmirhosseinDotZip</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container container-lg">
+          <div class="header-nav">
+            <a
+              href="/"
+              class="logo"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              >J.Sample</a
+            >
+            <nav id="nav" class="nav">
+              <ul class="nav-list" data-aos="fade-down" data-aos-duration="1000">
+                <li class="nav-item">
+                  <a href="/" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/blog.html" class="nav-link active">Blog</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#projects" class="nav-link">Works</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#contact" class="nav-link">Contact</a>
+                </li> -->
+              </ul>
+              <button id="nav-btn" class="nav-btn">
+                <img
+                  id="nav-btn-img"
+                  src="img/icons/open.svg"
+                  alt="Navigation button"
+                />
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+    <section class="blog">
+        <div class="container">
+            <div id="post-content">
+                <!-- Post content will be loaded here -->
+            </div>
+            <div class="back-button" style="margin-top: 2rem;">
+                <a href="/blog.html" class="btn btn-white">Back to Blog</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        async function loadPost() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const postId = params.get('id');
+                
+                const response = await fetch('/blog/posts.json');
+                const data = await response.json();
+                
+                const post = data.posts.find(p => p.id === postId);
+                if (!post) {
+                    throw new Error('Post not found');
+                }
+                
+                const contentResponse = await fetch(`/blog/${post.file}`);
+                const content = await contentResponse.text();
+                
+                document.title = `${post.title} - AmirhosseinDotZip`;
+                document.getElementById('post-content').innerHTML = marked.parse(content);
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadPost);
+    </script>
+</body>
+</html>

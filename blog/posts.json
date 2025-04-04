@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "id": "first-post",
+      "title": "My First Blog Post",
+      "date": "2024-01-20",
+      "file": "first-post.md"
+    }
+  ]
+}
