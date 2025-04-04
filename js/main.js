@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     once: true,
   });
-  form();
+
+  // Only call form() if we're on a page with the contact form
+  if (document.querySelector(".contactForm")) {
+    form();
+  }
   skillbar();
 
   const nav = document.querySelector("#nav");
@@ -21,6 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
       navBtnImg.src = "img/icons/open.svg";
     }
   };
+
+  // Theme switcher
+  const themeBtn = document.getElementById("theme-switch");
+  if (themeBtn) {
+    // Make sure the button exists
+    let currentTheme = "bg";
+    themeBtn.addEventListener("click", () => {
+      currentTheme = currentTheme === "bg" ? "bg2" : "bg";
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        // Make sure hero section exists
+        hero.style.backgroundImage = `url('img/background/${currentTheme}.jpg')`; // Fixed path
+      }
+    });
+  }
 
   window.addEventListener("scroll", function () {
     const header = document.querySelector("#header");

@@ -7,6 +7,14 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/media.css" />
+
+    <link rel="stylesheet" href="css/media.css" />
+    <!-- Add AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
@@ -16,12 +24,12 @@
             <a
               href="/"
               class="logo"
-              data-aos="fade-down"
+              data-aos="fade-right"
               data-aos-duration="1000"
               >Amirhossein.Zip</a
             >
             <nav id="nav" class="nav">
-              <ul class="nav-list" data-aos="fade-down" data-aos-duration="1000">
+              <ul class="nav-list" data-aos="fade-left" data-aos-duration="1000">
                 <li class="nav-item">
                   <a href="/" class="nav-link active">Home</a>
                 </li>
@@ -52,13 +60,22 @@
     <section class="blog">
       <div class="container">
         <div class="blog-title">
-          <h2 class="title">Blog Posts</h2>
+          <h2 class="title" data-aos="fade-down" data-aos-duration="600">Blog Posts</h2>
         </div>
-        <div class="blog-grid" id="blogPosts">
+        <div class="blog-grid" id="blogPosts" data-aos="fade-up" data-aos-duration="1000">
           <!-- Blog posts will be loaded here -->
         </div>
       </div>
     </section>
     <script type="module" src="js/blog.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      AOS.init({
+        once: true
+      });
+    </script>
+    
+    
   </body>
 </html>

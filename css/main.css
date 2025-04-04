@@ -73,9 +73,10 @@ body {
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--secondary-accent);
+  background-color: var(--white-color);
   border-color: var(--secondary-accent);
-  color: var(--white-color);
+  color: var(--main-text-color);
+  font-weight: 500;
   outline: 0;
 }
 
@@ -188,7 +189,7 @@ h5 {
 }
 
 .nav-link.active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-decoration-color: var(--secondary-accent);
   text-decoration-thickness: 1.2px;
   text-underline-offset: 7px;
@@ -280,12 +281,13 @@ h5 {
   img {
     height: 24px;
     width: 24px;
+    
   }
 }
 
 .social-links-row a {
   filter: invert(35%) sepia(11%) saturate(160%) hue-rotate(145deg)
-    brightness(88%) contrast(80%);
+    brightness(68%) contrast(80%);
   transition: all 0.3s ease-in-out;
 }
 
@@ -1022,4 +1024,91 @@ h5 {
     direction: rtl;
     text-align: right;
     font-family: "Vazirmatn", "Poppins", sans-serif;
+}
+
+
+
+/* Yoinked from CodePen, but improved the animation
+so that it is smooth among other more minor things */
+
+.codepen-button {
+  display: inline-block;  /* Changed from block to inline-block */
+  cursor: pointer;
+  color: white;
+  margin: 0 12px 16px 0;  /* Match btn class margins */
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 3px;
+  isolation: isolate;
+  vertical-align: top;    /* Align with other buttons */
+  height: 52px;          /* Match btn class height */
+}
+
+.codepen-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+  background-size: 25% 100%;
+  animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
+  animation-play-state: paused;
+  translate: -5% 0%;
+  transition: translate 0.25s ease-out;
+}
+
+.codepen-button:hover::before {
+  animation-play-state: running;
+  transition-duration: 0.75s;
+  translate: 0% 0%;
+}
+
+@keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+.codepen-button span {
+  position: relative;
+  display: flex;         /* Changed to flex for vertical centering */
+  align-items: center;   /* Center vertically */
+  padding: 0 1.5rem;     /* Adjusted padding */
+  font-size: 12px;       /* Match btn class font-size */
+  letter-spacing: 0.3em; /* Match btn class letter-spacing */
+  text-transform: uppercase; /* Match btn class text-transform */
+  background: #000;
+  border-radius: 3px;
+  height: 100%;         /* Fill parent height */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.theme-btn:hover {
+  opacity: 1;
+}
+
+.theme-btn img {
+  width: 20px;
+  height: 20px;
 }
