@@ -31,12 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (themeBtn) {
     // Make sure the button exists
     let currentTheme = "bg";
+
+    // Set initial background
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      hero.style.backgroundImage = `url('./img/background/${currentTheme}.jpg')`;
+    }
+
     themeBtn.addEventListener("click", () => {
       currentTheme = currentTheme === "bg" ? "bg2" : "bg";
-      const hero = document.querySelector(".hero");
       if (hero) {
-        // Make sure hero section exists
-        hero.style.backgroundImage = `url('img/background/${currentTheme}.jpg')`; // Fixed path
+        hero.style.backgroundImage = `url('./img/background/${currentTheme}.jpg')`;
       }
     });
   }

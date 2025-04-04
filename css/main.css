@@ -201,7 +201,7 @@ h5 {
   position: relative;
   padding-top: 80px;
   background-color: var(--primary-bg-color);
-  background-image: url('/img/background/bg.jpg');
+  background-image: url('./img/background/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
