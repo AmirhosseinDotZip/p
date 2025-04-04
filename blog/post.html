@@ -73,7 +73,7 @@
                 const params = new URLSearchParams(window.location.search);
                 const postId = params.get('id');
                 
-                const response = await fetch('/blog/posts.json');
+                const response = await fetch('../blog/posts.json');
                 const data = await response.json();
                 
                 const post = data.posts.find(p => p.id === postId);
@@ -81,7 +81,7 @@
                     throw new Error('Post not found');
                 }
                 
-                const contentResponse = await fetch(`/blog/posts/${post.file}`);
+                const contentResponse = await fetch(`../blog/posts/${post.file}`);
                 const content = await contentResponse.text();
                 
                 document.title = `${post.title} - AmirhosseinDotZip`;

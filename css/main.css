@@ -74,7 +74,7 @@ body {
 .btn:hover,
 .btn:focus {
   background-color: var(--white-color);
-  border-color: var(--secondary-accent);
+  border-color: var(--color-dots);
   color: var(--main-text-color);
   font-weight: 500;
   outline: 0;

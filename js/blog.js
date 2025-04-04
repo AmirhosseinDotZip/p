@@ -9,7 +9,7 @@ async function loadBlogPosts() {
     });
 
     console.log("Loading blog posts...");
-    const response = await fetch("/blog/posts.json");
+    const response = await fetch("./blog/posts.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -27,7 +27,7 @@ async function loadBlogPosts() {
     for (const post of data.posts) {
       console.log("Loading post:", post.file);
       try {
-        const response = await fetch(`/blog/posts/${post.file}`);
+        const response = await fetch(`./blog/posts/${post.file}`);
         if (!response.ok) {
           console.log(`Skipping ${post.file} - not found`);
           continue; // Skip this post and continue with next one
@@ -53,7 +53,7 @@ async function loadBlogPosts() {
           <div class="excerpt" ${
             hasPersian(previewLines) ? 'lang="fa"' : ""
           }>${previewLines}</div>
-          <a href="/blog/post.html?id=${post.id}" class="read-more">
+          <a href="./blog/post.html?id=${post.id}" class="read-more">
             <button class="contactButton">
               Continue
               <div class="iconButton">
