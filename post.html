@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Post - AmirhosseinDotZip</title>
-    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/media.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -73,7 +73,7 @@
                 const params = new URLSearchParams(window.location.search);
                 const postId = params.get('id');
                 
-                const response = await fetch('../blog/posts.json');
+                const response = await fetch('./posts.json');
                 const data = await response.json();
                 
                 const post = data.posts.find(p => p.id === postId);
@@ -81,7 +81,7 @@
                     throw new Error('Post not found');
                 }
                 
-                const contentResponse = await fetch(`../blog/posts/${post.file}`);
+                const contentResponse = await fetch(`./posts/${post.file}`);
                 const content = await contentResponse.text();
                 
                 document.title = `${post.title} - AmirhosseinDotZip`;
@@ -99,7 +99,8 @@
                 });
             } catch (error) {
                 console.error('Error loading post:', error);
-                document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
+                document.getElementById('post-content').innerHTML = 
+                    `<p>Error loading post. Please try again later. Details: ${error.message}</p>`;
             }
         }
         
