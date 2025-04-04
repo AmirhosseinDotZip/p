@@ -55,9 +55,7 @@ async function loadBlogPosts() {
           <div class="excerpt" ${
             hasPersian(previewLines) ? 'lang="fa"' : ""
           }>${previewLines}</div>
-          <a href="${baseURL}/post.html?id=${
-          post.id
-        }" class="read-more"> <!-- Changed link path -->
+          <a href="${baseURL}/post.html?id=${post.id}" class="read-more">
             <button class="contactButton">
               Continue
               <div class="iconButton">
