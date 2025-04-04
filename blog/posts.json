@@ -1,10 +1,32 @@
 {
   "posts": [
     {
-      "id": "first-post",
-      "title": "My First Blog Post",
-      "date": "2024-01-20",
-      "file": "first-post.md"
+      "id": "example post",
+      "title": "example post",
+      "date": "Friday, April 4, 2025",
+      "datefa": "جمعه، 15 فروردین، 1404",
+      "file": "example-post.md"
+    },
+    {
+      "id": "run commands win",
+      "title": "commands windows",
+      "date": "Friday, April 4, 2025",
+      "datefa": "جمعه، 15 فروردین، 1404",
+      "file": "windows run commands.md"
+    },
+    {
+      "id": "markdown preview",
+      "title": "markdown preview",
+      "date": "Friday, April 4, 2025",
+      "datefa": "جمعه، 15 فروردین، 1404",
+      "file": "test.md"
+    },
+    {
+      "id": "new-post",
+      "title": "new-post",
+      "date": "Friday, April 4, 2025",
+      "datefa": "جمعه، 15 فروردین، 1404",
+      "file": "new-post.md"
     }
   ]
 }

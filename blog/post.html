@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/media.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header id="header" class="header">
@@ -18,7 +19,7 @@
               class="logo"
               data-aos="fade-down"
               data-aos-duration="1000"
-              >J.Sample</a
+              >Amirhossein.Zip</a
             >
             <nav id="nav" class="nav">
               <ul class="nav-list" data-aos="fade-down" data-aos-duration="1000">
@@ -62,6 +63,12 @@
     <script>
         async function loadPost() {
             try {
+                // Configure marked.js
+                marked.use({
+                    mangle: false,
+                    headerIds: false
+                });
+
                 const params = new URLSearchParams(window.location.search);
                 const postId = params.get('id');
                 
@@ -73,11 +80,23 @@
                     throw new Error('Post not found');
                 }
                 
-                const contentResponse = await fetch(`/blog/${post.file}`);
+                const contentResponse = await fetch(`/blog/posts/${post.file}`);
                 const content = await contentResponse.text();
                 
                 document.title = `${post.title} - AmirhosseinDotZip`;
-                document.getElementById('post-content').innerHTML = marked.parse(content);
+
+                // Parse content with marked directly
+                const parsedContent = marked.parse(content);
+                const postContent = document.getElementById('post-content');
+                postContent.innerHTML = parsedContent;
+
+                // Add RTL support after content is loaded
+                postContent.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(el => {
+                    if (/[\u0600-\u06FF]/.test(el.innerText)) {
+                        el.setAttribute('dir', 'rtl');
+                        el.setAttribute('lang', 'fa');
+                    }
+                });
             } catch (error) {
                 console.error('Error loading post:', error);
                 document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
