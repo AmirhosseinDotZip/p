@@ -194,14 +194,32 @@ h5 {
   text-underline-offset: 7px;
 }
 
+/* background image bg */
 /* Hero section */
 .hero {
   position: relative;
   padding-top: 80px;
   background-color: var(--primary-bg-color);
+  background-image: url('/img/background/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(247, 251, 253, 0.45); /* Slightly transparent primary-bg-color */
+  z-index: 0;
 }
 
 .hero-row {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
 }
