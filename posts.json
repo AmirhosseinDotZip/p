@@ -27,6 +27,13 @@
       "date": "Friday, April 4, 2025",
       "datefa": "جمعه، 15 فروردین، 1404",
       "file": "new-post.md"
+    },
+    {
+      "id": "ollama",
+      "title": "ollama",
+      "date": "Wednesday, April 9, 2025",
+      "datefa": "چهارشنبه، 20 فروردین، 1404",
+      "file": "ollama.md"
     }
   ]
 }
