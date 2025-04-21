@@ -35,5 +35,13 @@
       "datefa": "چهارشنبه، 20 فروردین، 1404",
       "file": "ollama.md"
     }
+    ,
+    {
+      "id": "symlinks",
+      "title": "symlinks",
+      "date": "Monday, April 21, 2025",
+      "datefa": "دوشنبه، 1 اردیبهشت، 1404",
+      "file": "symlinks.md"
+    }
   ]
 }
