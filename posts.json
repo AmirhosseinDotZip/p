@@ -43,5 +43,13 @@
       "datefa": "دوشنبه، 1 اردیبهشت، 1404",
       "file": "symlinks.md"
     }
+    ,
+    {
+      "id": "wc-command",
+      "title": "Count output lines in linux",
+      "date": "Monday, November 2, 2025",
+      "datefa": "1404/08/11",
+      "file": "wc-command.md"
+    }
   ]
 }
