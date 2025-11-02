@@ -1,4 +1,13 @@
 
+# Hi
+
+ <img src="./img/works/07.webp" alt="isolated" width="500"/>
+
+
+
+
+# the `WC` Command in linux 
+
 The **`wc` (word count) command** is the primary tool in Linux for counting output lines, which is achieved by piping the output of any command directly to `wc` with the line count option.
 
 ---
